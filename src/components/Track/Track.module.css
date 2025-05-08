@@ -1,0 +1,13 @@
+.songDetails {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--accent-glow);
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.button {
+  background-color: transparent;
+  border: 0;
+  color: var(--text-white);
+}

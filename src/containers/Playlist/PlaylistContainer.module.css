@@ -1,0 +1,35 @@
+.searchPlaylistContainer {
+  width: 25%;
+  height: 600px;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 14, 36, 0.95),
+    rgba(45, 22, 65, 0.95)
+  );
+  border: 1px solid #5e2d79;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  margin-bottom: 0.8rem;
+}
+
+.saveButtonContainer {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.saveButton {
+  background: linear-gradient(135deg, #8e44ad, #b97edc);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(142, 68, 173, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}

@@ -1,0 +1,44 @@
+:root {
+  /* ⚫️ Base Backgrounds */
+  --bg-dark: #0f0f0f; /* Very dark background (primary page background) */
+  --bg-medium: #1a1a1a; /* Slightly lighter section background */
+  --bg-light: #2a2a2a; /* Use for card or list backgrounds */
+
+  /* 🟣 Primary Purple Shades */
+  --purple-main: #8e44ad; /* Main brand color – vibrant purple */
+  --purple-light: #b97edc; /* Lighter purple – hover/active states */
+  --purple-dark: #5e2d79; /* Deeper purple – for buttons or emphasis */
+
+  /* 🎯 Accent Colors */
+  --accent-glow: #d2a8ff; /* Neon violet accent – for interactive elements */
+  --text-white: #ffffff; /* Clean white for text */
+  --text-muted: #ccc; /* Muted text (descriptions, footers) */
+
+  /* 🎧 UI Utility */
+  --btn-bg: var(--purple-dark);
+  --btn-hover: var(--purple-main);
+  --border-color: #3a3a3a; /* Divider or track border */
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: url("./assets/ImageBackground.png") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text-white);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* footer {
+  font-family: "Roboto Condensed", sans-serif;
+} */

@@ -1,0 +1,17 @@
+.searchPlaylistContainer {
+  width: 30%;
+  height: 600px;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 14, 36, 0.95),
+    rgba(45, 22, 65, 0.95)
+  );
+  border: 1px solid #5e2d79;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  margin-bottom: 0.8rem;
+}
