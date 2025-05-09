@@ -3,6 +3,7 @@ import {
   redirectToSpotifyAuth,
   getAccessTokenFromCode,
 } from "../../utils/SpotifyAuth";
+import { searchTracks } from "../../utils/SpotifyAPI";
 import { SearchResultContainer } from "../SearchResults/SearchResultContainer";
 import { PlaylistContainer } from "../Playlist/PlaylistContainer";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
@@ -10,100 +11,58 @@ import { Header } from "../../components/Header/Header";
 import styles from "./AppContainer.module.css";
 
 export function AppContainer() {
-  const mockSearchResults = [
-    {
-      id: "1",
-      name: "Track One",
-      artist: "Artist Alpha",
-      album: "Album Red",
-      uri: "spotify:track:1111aaa",
-    },
-    {
-      id: "2",
-      name: "Track Two",
-      artist: "Artist Beta",
-      album: "Album Blue",
-      uri: "spotify:track:2222bbb",
-    },
-    {
-      id: "3",
-      name: "Track Three",
-      artist: "Artist Gamma",
-      album: "Album Green",
-      uri: "spotify:track:3333ccc",
-    },
-  ];
-
-  const mockPlaylist = [
-    {
-      id: "3",
-      name: "Track Three",
-      artist: "Artist Gamma",
-      album: "Album Green",
-      uri: "spotify:track:3333ccc",
-    },
-    {
-      id: "4",
-      name: "Track Four",
-      artist: "Artist Delta",
-      album: "Album Yellow",
-      uri: "spotify:track:4444ddd",
-    },
-    {
-      id: "5",
-      name: "Track Five",
-      artist: "Artist Epsilon",
-      album: "Album Purple",
-      uri: "spotify:track:5555eee",
-    },
-  ];
-
-  const [searchResults, setSearchResults] = useState(mockSearchResults);
-  const [playlistTracks, setPlaylistTracks] = useState(mockPlaylist);
+  // ✅ State
+  const [token, setToken] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
   const [playlistName, setPlaylistName] = useState("My Playlist");
 
+  // ✅ Auth
   useEffect(() => {
     async function authFlow() {
-      const token = await getAccessTokenFromCode();
-      if (!token) {
-        redirectToSpotifyAuth(); // send to Spotify if no token found
+      const accessToken = await getAccessTokenFromCode();
+      if (!accessToken) {
+        redirectToSpotifyAuth();
       } else {
-        console.log("Access Token:", token);
+        setToken(accessToken);
       }
     }
 
     authFlow();
   }, []);
 
-  // Handle song addition
-  function handleAddTrack(track) {
-    const dupeChecker = playlistTracks.some(
-      (trackInList) => trackInList.id === track.id
-    );
+  // ✅ Handlers
+  async function handleSearch(term) {
+    if (!token) return;
+    const results = await searchTracks(term, token);
+    setSearchResults(results);
+  }
 
-    if (!dupeChecker) {
-      setPlaylistTracks((prevPlaylist) => [...prevPlaylist, track]);
+  function handleAddTrack(track) {
+    const alreadyInPlaylist = playlistTracks.some(
+      (item) => item.id === track.id
+    );
+    if (!alreadyInPlaylist) {
+      setPlaylistTracks((prev) => [...prev, track]);
     }
   }
 
-  // Handle song removal
   function handleRemoveTrack(track) {
-    setPlaylistTracks((prevPlaylist) =>
-      prevPlaylist.filter((trackInList) => trackInList.id !== track.id)
-    );
+    setPlaylistTracks((prev) => prev.filter((item) => item.id !== track.id));
   }
 
-  // Handle saving playlist
   function handleSavePlaylist() {
     const trackUris = playlistTracks.map((track) => track.uri);
     console.log(`Saving "${playlistName}" with ${trackUris.length} tracks`);
     setPlaylistTracks([]);
     setPlaylistName("New Playlist");
   }
+
+  // ✅ Render
   return (
     <>
       <Header />
-      <SearchBar />
+      <SearchBar onSearch={handleSearch} />
       <div className={styles.container}>
         <SearchResultContainer tracks={searchResults} onAdd={handleAddTrack} />
         <PlaylistContainer
@@ -111,8 +70,8 @@ export function AppContainer() {
           playlistName={playlistName}
           onNameChange={setPlaylistName}
           onRemove={handleRemoveTrack}
-          isRemoval={true}
           onSave={handleSavePlaylist}
+          isRemoval={true}
         />
       </div>
     </>

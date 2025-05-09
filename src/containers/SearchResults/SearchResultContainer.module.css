@@ -1,6 +1,8 @@
 .searchPlaylistContainer {
-  width: 30%;
+  width: 35%;
   height: 600px;
+  overflow-y: auto;
+  scrollbar-width: thin; /* for Firefox */
   background: linear-gradient(
     135deg,
     rgba(26, 14, 36, 0.95),
