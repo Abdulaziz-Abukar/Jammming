@@ -12,13 +12,13 @@ import { Footer } from "../../components/Footer/Footer";
 import styles from "./AppContainer.module.css";
 
 export function AppContainer() {
-  // ✅ State
+  // State
   const [token, setToken] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [playlistName, setPlaylistName] = useState("");
 
-  // ✅ Auth
+  // Auth
   useEffect(() => {
     async function authFlow() {
       const accessToken = await getAccessTokenFromCode();
@@ -32,7 +32,7 @@ export function AppContainer() {
     authFlow();
   }, []);
 
-  // ✅ Handlers
+  // Handlers
   async function handleSearch(term) {
     if (!token) return;
     const results = await searchTracks(term, token);
@@ -59,7 +59,7 @@ export function AppContainer() {
     setPlaylistName("");
   }
 
-  // ✅ Render
+  // Render
   return (
     <>
       <Header />
