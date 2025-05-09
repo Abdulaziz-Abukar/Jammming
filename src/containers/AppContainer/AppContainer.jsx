@@ -8,6 +8,7 @@ import { SearchResultContainer } from "../SearchResults/SearchResultContainer";
 import { PlaylistContainer } from "../Playlist/PlaylistContainer";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { Header } from "../../components/Header/Header";
+import { Footer } from "../../components/Footer/Footer";
 import styles from "./AppContainer.module.css";
 
 export function AppContainer() {
@@ -15,7 +16,7 @@ export function AppContainer() {
   const [token, setToken] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [playlistTracks, setPlaylistTracks] = useState([]);
-  const [playlistName, setPlaylistName] = useState("My Playlist");
+  const [playlistName, setPlaylistName] = useState("");
 
   // ✅ Auth
   useEffect(() => {
@@ -55,7 +56,7 @@ export function AppContainer() {
     const trackUris = playlistTracks.map((track) => track.uri);
     console.log(`Saving "${playlistName}" with ${trackUris.length} tracks`);
     setPlaylistTracks([]);
-    setPlaylistName("New Playlist");
+    setPlaylistName("");
   }
 
   // ✅ Render
@@ -63,16 +64,22 @@ export function AppContainer() {
     <>
       <Header />
       <SearchBar onSearch={handleSearch} />
-      <div className={styles.container}>
-        <SearchResultContainer tracks={searchResults} onAdd={handleAddTrack} />
-        <PlaylistContainer
-          tracks={playlistTracks}
-          playlistName={playlistName}
-          onNameChange={setPlaylistName}
-          onRemove={handleRemoveTrack}
-          onSave={handleSavePlaylist}
-          isRemoval={true}
-        />
+      <div>
+        <div className={styles.container}>
+          <SearchResultContainer
+            tracks={searchResults}
+            onAdd={handleAddTrack}
+          />
+          <PlaylistContainer
+            tracks={playlistTracks}
+            playlistName={playlistName}
+            onNameChange={setPlaylistName}
+            onRemove={handleRemoveTrack}
+            onSave={handleSavePlaylist}
+            isRemoval={true}
+          />
+        </div>
+        <Footer />
       </div>
     </>
   );

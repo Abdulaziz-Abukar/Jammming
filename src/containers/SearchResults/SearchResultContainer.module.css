@@ -1,5 +1,5 @@
 .searchPlaylistContainer {
-  width: 35%;
+  width: 25%;
   height: 600px;
   overflow-y: auto;
   scrollbar-width: thin; /* for Firefox */
@@ -10,7 +10,7 @@
   );
   border: 1px solid #5e2d79;
   padding: 1rem;
-  border-radius: 16px;
+  border-radius: 1rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
