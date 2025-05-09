@@ -1,95 +1,92 @@
-# 🎶 Jammming
+# 🎵 Jammming
 
-Jammming is a React + Spotify web application that allows users to search for music, create custom playlists, and save them directly to their Spotify account. Built using modern React patterns and the Spotify Web API.
+Jammming is a React + Spotify web application that allows users to search for music, create custom playlists, and save them directly to their personal Spotify accounts.
 
----
+## 🌐 Live Demo
 
-## 🚀 Features
+**👉 Try it here:**  
+[https://abdulaziz-abukar.github.io/jammming/](https://abdulaziz-abukar.github.io/jammming/)
 
-- 🔐 Secure login using Spotify’s Authorization Code with PKCE
-- 🔍 Live music search powered by the Spotify API
-- ➕ Add/remove tracks to build a custom playlist
-- ✏️ Rename your playlist in real time
-- 💾 Save your playlist directly to your Spotify account
-- ⚡ Fast frontend performance with Vite and React hooks
+To use the app, you'll need to log in with your Spotify account and authorize access.
 
 ---
 
-## 🛠️ Tech Stack
+## 💻 Running Locally
 
-- **React** (with functional components and hooks)
-- **Vite** (modern dev server and bundler)
-- **Spotify Web API**
-- **CSS Modules** (modular, scoped styling)
+1. **Clone the repository:**
 
----
+   ```bash
+   git clone https://github.com/Abdulaziz-Abukar/jammming.git
+   cd jammming
+   ```
 
-## 📦 Getting Started
+2. **Install dependencies:**
 
-### 1. Clone the repository
+   ```bash
+   npm install
+   ```
 
-```bash
-git clone https://github.com/yourusername/jammming.git
-cd jammming
-```
+3. **Set up environment variables:**
 
-### 2. Install dependencies
+   Create a `.env` file in the root directory with the following:
 
-```bash
-npm install
-```
+   ```
+   VITE_SPOTIFY_CLIENT_ID=your_spotify_client_id
+   ```
 
-### 3. Create your Spotify App
+4. **Start the development server:**
 
-- Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
-- Create a new app
-- Add this **redirect URI** to your app settings:
-  ```
-  http://127.0.0.1:5173/
-  ```
+   ```bash
+   npm run dev
+   ```
 
-### 4. Add environment variable
-
-Create a `.env` file in the project root and add your client ID:
-
-```env
-VITE_SPOTIFY_CLIENT_ID=your_spotify_client_id_here
-```
-
-> ⚠️ **Do not share your client ID publicly.** Make sure `.env` is listed in your `.gitignore`.
-
----
-
-## ▶️ Run the App
-
-```bash
-npm run dev
-```
-
-Then open your browser to:  
-**http://127.0.0.1:5173**
+5. Visit [http://127.0.0.1:5173/](http://127.0.0.1:5173/) to use the app locally.
 
 ---
 
 ## 📸 Screenshots
 
-### First Launch
+### 🔐 Spotify Authorization
 
 ![Launch](public/screenshots/SpotifyAuth.png)
 
-### Playlist Builder
+### 🎧 Playlist Builder
 
-![Using Preview](public/screenshots/Main.png)
+![App UI](public/screenshots/Main.png)
 
 ---
 
-## 📄 License
+## 🧠 Built With
+
+- React
+- Vite
+- Spotify Web API (Authorization Code with PKCE)
+- GitHub Pages
+
+---
+
+## 📄 Disclaimer
+
+This project uses the Spotify Web API and is intended for educational and portfolio use only.  
+It is not affiliated with or endorsed by Spotify AB.
+
+---
+
+## 📝 License
 
 This project is licensed under the [MIT License](LICENSE).
 
+You are free to:
+
+- Use this code for personal or commercial purposes
+- Modify or distribute it as part of your own projects
+- Learn from and adapt it freely
+
+**Note:** This software is provided "as-is" without any warranty or guarantees. Use at your own risk.
+
 ---
 
-## 🙌 Built by
+## 🙌 Author
 
 **Abdulaziz Abukar**  
-You can follow or contact me on [GitHub](https://github.com/yourusername) for more awesome frontend projects!
+[GitHub](https://github.com/Abdulaziz-Abukar)
