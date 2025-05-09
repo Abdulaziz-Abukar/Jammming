@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {
+  redirectToSpotifyAuth,
+  getAccessTokenFromCode,
+} from "../../utils/SpotifyAuth";
 import { SearchResultContainer } from "../SearchResults/SearchResultContainer";
 import { PlaylistContainer } from "../Playlist/PlaylistContainer";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
@@ -57,6 +61,19 @@ export function AppContainer() {
   const [searchResults, setSearchResults] = useState(mockSearchResults);
   const [playlistTracks, setPlaylistTracks] = useState(mockPlaylist);
   const [playlistName, setPlaylistName] = useState("My Playlist");
+
+  useEffect(() => {
+    async function authFlow() {
+      const token = await getAccessTokenFromCode();
+      if (!token) {
+        redirectToSpotifyAuth(); // send to Spotify if no token found
+      } else {
+        console.log("Access Token:", token);
+      }
+    }
+
+    authFlow();
+  }, []);
 
   // Handle song addition
   function handleAddTrack(track) {
