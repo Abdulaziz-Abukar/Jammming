@@ -3,7 +3,7 @@ import {
   redirectToSpotifyAuth,
   getAccessTokenFromCode,
 } from "../../utils/SpotifyAuth";
-import { searchTracks } from "../../utils/SpotifyAPI";
+import { searchTracks, savePlaylist } from "../../utils/SpotifyAPI";
 import { SearchResultContainer } from "../SearchResults/SearchResultContainer";
 import { PlaylistContainer } from "../Playlist/PlaylistContainer";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
@@ -52,9 +52,9 @@ export function AppContainer() {
     setPlaylistTracks((prev) => prev.filter((item) => item.id !== track.id));
   }
 
-  function handleSavePlaylist() {
+  async function handleSavePlaylist() {
     const trackUris = playlistTracks.map((track) => track.uri);
-    console.log(`Saving "${playlistName}" with ${trackUris.length} tracks`);
+    await savePlaylist(playlistName, trackUris, token);
     setPlaylistTracks([]);
     setPlaylistName("");
   }
