@@ -58,6 +58,7 @@ export function AppContainer() {
   const [playlistTracks, setPlaylistTracks] = useState(mockPlaylist);
   const [playlistName, setPlaylistName] = useState("My Playlist");
 
+  // Handle song addition
   function handleAddTrack(track) {
     const dupeChecker = playlistTracks.some(
       (trackInList) => trackInList.id === track.id
@@ -68,10 +69,19 @@ export function AppContainer() {
     }
   }
 
+  // Handle song removal
   function handleRemoveTrack(track) {
     setPlaylistTracks((prevPlaylist) =>
       prevPlaylist.filter((trackInList) => trackInList.id !== track.id)
     );
+  }
+
+  // Handle saving playlist
+  function handleSavePlaylist() {
+    const trackUris = playlistTracks.map((track) => track.uri);
+    console.log(`Saving "${playlistName}" with ${trackUris.length} tracks`);
+    setPlaylistTracks([]);
+    setPlaylistName("New Playlist");
   }
   return (
     <>
@@ -85,6 +95,7 @@ export function AppContainer() {
           onNameChange={setPlaylistName}
           onRemove={handleRemoveTrack}
           isRemoval={true}
+          onSave={handleSavePlaylist}
         />
       </div>
     </>

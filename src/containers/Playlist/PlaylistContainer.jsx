@@ -7,6 +7,7 @@ export function PlaylistContainer({
   onNameChange,
   onRemove,
   isRemoval,
+  onSave,
 }) {
   return (
     <div className={styles.searchPlaylistContainer}>
@@ -21,7 +22,9 @@ export function PlaylistContainer({
       />
       <TrackList tracks={tracks} onRemove={onRemove} isRemoval={isRemoval} />
       <div className={styles.saveButtonContainer}>
-        <button className={styles.saveButton}>Save to Spotify</button>
+        <button className={styles.saveButton} onClick={onSave}>
+          Save to Spotify
+        </button>
       </div>
     </div>
   );
