@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Track.module.css";
-export function Track({ track }) {
+export function Track({ track, onAdd, onRemove, isRemoval }) {
   return (
     <div>
       <h3>{track.name}</h3>
@@ -8,7 +8,15 @@ export function Track({ track }) {
         <p>
           {track.artist} | {track.album}
         </p>
-        <button className={styles.button}>+</button>
+        {isRemoval ? (
+          <button className={styles.button} onClick={() => onRemove(track)}>
+            -
+          </button>
+        ) : (
+          <button className={styles.button} onClick={() => onAdd(track)}>
+            +
+          </button>
+        )}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SearchResultContainer } from "../SearchResults/SearchResultContainer";
 import { PlaylistContainer } from "../Playlist/PlaylistContainer";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
@@ -54,13 +54,37 @@ export function AppContainer() {
     },
   ];
 
+  const [searchResults, setSearchResults] = useState(mockSearchResults);
+  const [playlistTracks, setPlaylistTracks] = useState(mockPlaylist);
+  const [playlistName, setPlaylistName] = useState("My Playlist");
+
+  function handleAddTrack(track) {
+    const dupeChecker = playlistTracks.some(
+      (trackInList) => trackInList.id === track.id
+    );
+
+    if (!dupeChecker) {
+      setPlaylistTracks((prevPlaylist) => [...prevPlaylist, track]);
+    }
+  }
+
+  function handleRemoveTrack(track) {
+    setPlaylistTracks((prevPlaylist) =>
+      prevPlaylist.filter((trackInList) => trackInList.id !== track.id)
+    );
+  }
   return (
     <>
       <Header />
       <SearchBar />
       <div className={styles.container}>
-        <SearchResultContainer tracks={mockSearchResults} />
-        <PlaylistContainer tracks={mockPlaylist} />
+        <SearchResultContainer tracks={searchResults} onAdd={handleAddTrack} />
+        <PlaylistContainer
+          tracks={playlistTracks}
+          playlistName={playlistName}
+          onRemove={handleRemoveTrack}
+          isRemoval={true}
+        />
       </div>
     </>
   );
