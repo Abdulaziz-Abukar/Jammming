@@ -82,6 +82,7 @@ export function AppContainer() {
         <PlaylistContainer
           tracks={playlistTracks}
           playlistName={playlistName}
+          onNameChange={setPlaylistName}
           onRemove={handleRemoveTrack}
           isRemoval={true}
         />

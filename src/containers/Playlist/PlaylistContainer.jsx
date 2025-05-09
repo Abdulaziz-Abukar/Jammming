@@ -4,12 +4,21 @@ import styles from "./PlaylistContainer.module.css";
 export function PlaylistContainer({
   tracks,
   playlistName,
+  onNameChange,
   onRemove,
   isRemoval,
 }) {
   return (
     <div className={styles.searchPlaylistContainer}>
-      <h2 className={styles.title}>{playlistName}</h2>
+      <input
+        type="text"
+        name="playlistName"
+        id="playlistName"
+        placeholder="Type your Playlist Name..."
+        value={playlistName}
+        onChange={(e) => onNameChange(e.target.value)}
+        className={styles.inputBox}
+      />
       <TrackList tracks={tracks} onRemove={onRemove} isRemoval={isRemoval} />
       <div className={styles.saveButtonContainer}>
         <button className={styles.saveButton}>Save to Spotify</button>

@@ -1,8 +1,9 @@
 import React from "react";
 import { Track } from "../Track/Track";
+import styles from "./Tracklist.module.css";
 export function TrackList({ tracks, onAdd, onRemove, isRemoval }) {
   return (
-    <div>
+    <div className={styles.trackListWrapper}>
       {tracks.map((track) => (
         <Track
           key={track.id}
