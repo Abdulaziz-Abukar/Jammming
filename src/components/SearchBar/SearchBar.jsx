@@ -8,7 +8,6 @@ export function SearchBar({ onSearch }) {
     if (term.trim()) {
       onSearch(term);
     }
-    setTerm("");
   }
 
   return (
