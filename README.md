@@ -75,7 +75,7 @@ Then open your browser to:
 
 ### First Launch
 
-![Launch](public/screenshots/spotifyAuth.png)
+![Launch](public/screenshots/SpotifyAuth.png)
 
 ### Playlist Builder
 
