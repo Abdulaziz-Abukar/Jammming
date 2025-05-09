@@ -72,20 +72,6 @@ It is not affiliated with or endorsed by Spotify AB.
 
 ---
 
-## 📝 License
-
-This project is licensed under the [MIT License](LICENSE).
-
-You are free to:
-
-- Use this code for personal or commercial purposes
-- Modify or distribute it as part of your own projects
-- Learn from and adapt it freely
-
-**Note:** This software is provided "as-is" without any warranty or guarantees. Use at your own risk.
-
----
-
 ## 🙌 Author
 
 **Abdulaziz Abukar**  
