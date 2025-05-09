@@ -1,5 +1,8 @@
 const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
-const redirectUri = "http://127.0.0.1:5173/";
+const redirectUri = import.meta.env.PROD
+  ? "https://Abdulaziz-Abukar.github.io/jammming/"
+  : "http://127.0.0.1:5173/";
+
 const scope = "playlist-modify-public playlist-modify-private";
 
 function generateCodeVerifier(length = 128) {
