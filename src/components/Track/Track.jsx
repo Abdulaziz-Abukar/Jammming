@@ -3,7 +3,7 @@ import styles from "./Track.module.css";
 export function Track({ track, onAdd, onRemove, isRemoval }) {
   return (
     <div>
-      <h3>{track.name}</h3>
+      <h3 className={styles.songTitle}>{track.name}</h3>
       <div className={styles.songDetails}>
         <p>
           {track.artist} | {track.album}

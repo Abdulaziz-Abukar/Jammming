@@ -12,3 +12,9 @@
   text-shadow: 0 0 4px #b97edc, 0 0 8px #8e44ad;
   font-weight: 900;
 }
+
+@media only screen and (max-width: 600px) {
+  .headerWrapper {
+    font-size: 1.2rem;
+  }
+}

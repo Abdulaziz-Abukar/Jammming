@@ -9,6 +9,21 @@
 .button {
   background-color: transparent;
   border: 0;
+  font-size: 1.3rem;
   color: var(--text-white);
   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .songTitle {
+    font-size: 1.1rem;
+  }
+
+  .songDetails p {
+    font-size: 0.8rem;
+  }
+
+  .button {
+    font-size: 1rem;
+  }
 }

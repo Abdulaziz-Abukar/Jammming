@@ -57,3 +57,19 @@
   box-shadow: 0 2px 6px rgba(164, 96, 204, 0.6);
   transform: translateY(1px) scale(0.97);
 }
+
+@media only screen and (max-width: 768px) {
+  .searchPlaylistContainer {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .inputBox {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    padding: 0 0 0.1rem 0.5rem;
+  }
+  .saveButton {
+    font-size: 0.9rem;
+  }
+}

@@ -15,7 +15,7 @@ export function PlaylistContainer({
         type="text"
         name="playlistName"
         id="playlistName"
-        placeholder="Type your Playlist Name..."
+        placeholder="Playlist Name..."
         value={playlistName}
         onChange={(e) => onNameChange(e.target.value)}
         className={styles.inputBox}
