@@ -59,6 +59,10 @@ export function AppContainer() {
     setPlaylistName("");
   }
 
+  // Filter out songs that are in playlist
+  const filteredSearchResults = searchResults.filter(
+    (track) => !playlistTracks.some((t) => t.id === track.id)
+  );
   // Render
   return (
     <>
@@ -67,7 +71,7 @@ export function AppContainer() {
       <div>
         <div className={styles.container}>
           <SearchResultContainer
-            tracks={searchResults}
+            tracks={filteredSearchResults}
             onAdd={handleAddTrack}
           />
           <PlaylistContainer
