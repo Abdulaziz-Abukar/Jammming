@@ -11,7 +11,10 @@ export function Footer() {
         <a href="https://www.linkedin.com/in/abdul-abukar/" target="_blank">
           LinkedIn
         </a>
-        <a href="https://abdulaziz-abukar.github.io/" target="_blank">
+        <a
+          href="https://dev-abdulaziz-abukars-projects.vercel.app/"
+          target="_blank"
+        >
           My Portfolio
         </a>
         <a href="https://developer.spotify.com" target="_blank">
